@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: API de Vacunas
+  description: API para consultar el historial de vacunas de los usuarios
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api
+    description: Servidor local de desarrollo
+
+paths:
+  /vaccines/{documentNumber}:
+    get:
+      summary: Obtener historial de vacunas por número de documento
+      description: Retorna el historial completo de vacunas de un usuario específico
+      parameters:
+        - name: documentNumber
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Número de documento del usuario
+      responses:
+        '200':
+          description: Historial de vacunas encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: '#/components/schemas/User'
+                  vaccines:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Vaccine'
+              example:
+                user:
+                  documentNumber: "12345678"
+                  firstName: "Juan"
+                  lastName: "Pérez"
+                  email: "juan.perez@email.com"
+                vaccines:
+                  - name: "COVID-19 Pfizer"
+                    doseNumber: 1
+                    vaccinationDate: "2023-01-15"
+                    lotNumber: "PF123456"
+                    manufacturer: "Pfizer"
+                  - name: "COVID-19 Pfizer"
+                    doseNumber: 2
+                    vaccinationDate: "2023-02-15"
+                    lotNumber: "PF123457"
+                    manufacturer: "Pfizer"
+                  - name: "Influenza"
+                    doseNumber: 1
+                    vaccinationDate: "2023-06-01"
+                    lotNumber: "FLU2023"
+                    manufacturer: "Sanofi"
+        '404':
+          description: Usuario no encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: "Usuario no encontrado"
+                status: 404
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        documentNumber:
+          type: string
+          example: "12345678"
+        firstName:
+          type: string
+          example: "Juan"
+        lastName:
+          type: string
+          example: "Pérez"
+        email:
+          type: string
+          example: "juan.perez@email.com"
+
+    Vaccine:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "COVID-19 Pfizer"
+        doseNumber:
+          type: integer
+          example: 1
+        vaccinationDate:
+          type: string
+          format: date
+          example: "2023-01-15"
+        lotNumber:
+          type: string
+          example: "PF123456"
+        manufacturer:
+          type: string
+          example: "Pfizer"
+
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Usuario no encontrado"
+        status:
+          type: integer
+          example: 404 
