@@ -9,46 +9,6 @@ servers:
     description: Local development server
 
 paths:
-  /api/users:
-    get:
-      summary: Get all users
-      description: Returns a list of all users
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/User'
-    post:
-      summary: Create a new user
-      description: Creates a new user
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-      responses:
-        '201':
-          description: User created successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-        '400':
-          description: Invalid input
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  fieldName:
-                    type: string
-                    description: Validation error message
-
   /api/users/{id}:
     parameters:
       - name: id
@@ -68,42 +28,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-        '404':
-          description: User not found
-    put:
-      summary: Update user
-      description: Updates an existing user
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-      responses:
-        '200':
-          description: User updated successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-        '400':
-          description: Invalid input
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  fieldName:
-                    type: string
-                    description: Validation error message
-        '404':
-          description: User not found
-    delete:
-      summary: Delete user
-      description: Deletes a user
-      responses:
-        '204':
-          description: User deleted successfully
         '404':
           description: User not found
 
