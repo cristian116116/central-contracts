@@ -6,7 +6,6 @@
   "http-response": {
     "status": 200,
     "body": {
-      "secretValue": "test",
       "id": 1,
       "name": "John Doe",
       "email": "john.doe@example.com"
