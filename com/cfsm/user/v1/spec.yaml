@@ -32,6 +32,8 @@ paths:
           description: Bad Request
           content:
             application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
               example:
                 timestamp: "2025-04-30T22:45:19.279+00:00"
                 status: 400
@@ -41,11 +43,13 @@ paths:
           description: User not found
           content:
             application/json:
-              example: 
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
                 timestamp: "2025-04-30T22:45:19.279+00:00"
                 status: 404
                 error: "Not Found"
-                path: "/api/users/2"              
+                path: "/api/users/2"
 
 components:
   schemas:
@@ -91,3 +95,21 @@ components:
         - lastName
         - email
         - cellPhone
+
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        status:
+          type: integer
+        error:
+          type: string
+        path:
+          type: string
+      required:
+        - timestamp
+        - status
+        - error
+        - path
