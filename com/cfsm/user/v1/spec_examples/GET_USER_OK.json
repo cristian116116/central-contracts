@@ -6,9 +6,12 @@
   "http-response": {
     "status": 200,
     "body": {
-      "id": 1,
-      "name": "John Doe",
-      "email": "john.doe@example.com"
+      "documentType": "CC",
+      "documentNumber": "1234567890",
+      "firstName": "Juan",
+      "lastName": "Pérez",
+      "email": "juan.perez@example.com",
+      "cellPhone": "3001234567"
     }
   }
 }
