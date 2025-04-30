@@ -40,13 +40,38 @@ components:
           type: integer
           format: int64
           description: User ID
-        name:
+        documentType:
           type: string
-          description: User's name
+          minLength: 2
+          maxLength: 10
+          description: Document type (e.g. CC, TI)
+        documentNumber:
+          type: string
+          minLength: 5
+          maxLength: 20
+          description: Document number
+        firstName:
+          type: string
+          minLength: 2
+          maxLength: 50
+          description: First name
+        lastName:
+          type: string
+          minLength: 2
+          maxLength: 50
+          description: Last name
         email:
           type: string
           format: email
-          description: User's email address
+          description: Email address
+        cellPhone:
+          type: string
+          pattern: '^[0-9]{10}$'
+          description: Cell phone number (10 digits)
       required:
-        - name
-        - email 
+        - documentType
+        - documentNumber
+        - firstName
+        - lastName
+        - email
+        - cellPhone
