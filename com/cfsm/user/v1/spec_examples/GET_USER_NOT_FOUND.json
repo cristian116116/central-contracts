@@ -1,0 +1,9 @@
+{
+    "http-request": {
+        "path": "/api/users/2",
+        "method": "GET"
+    },
+    "http-response": {
+        "status": 404
+    }
+}
