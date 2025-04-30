@@ -1,0 +1,15 @@
+{
+    "http-request": {
+      "path": "/api/users/false",
+      "method": "GET"
+    },
+    "http-response": {
+      "status": 404,
+      "body": {
+        "timestamp": "2025-04-30T22:45:19.279+00:00",
+        "status": 400,
+        "error": "Bad Request",
+        "path": "/api/users/false"
+      }
+    }
+  }
