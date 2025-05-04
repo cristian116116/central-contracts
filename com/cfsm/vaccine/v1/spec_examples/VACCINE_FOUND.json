@@ -1,6 +1,6 @@
 {
   "http-request": {
-    "path": "/api/vaccines/12345678",
+    "path": "/vaccines/12345678",
     "method": "GET"
   },
   "http-response": {
