@@ -1,0 +1,13 @@
+{
+  "http-request": {
+    "path": "/api/vaccines/1030581679",
+    "method": "GET"
+  },
+  "http-response": {
+    "status": 404,
+    "body": {
+      "message": "Usuario no encontrado",
+      "status": 404
+    }
+  }
+} 

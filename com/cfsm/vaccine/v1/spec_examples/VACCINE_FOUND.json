@@ -1,0 +1,40 @@
+{
+  "http-request": {
+    "path": "/api/vaccines/12345678",
+    "method": "GET"
+  },
+  "http-response": {
+    "status": 200,
+    "body": {
+      "user": {
+        "documentNumber": "12345678",
+        "firstName": "Juan",
+        "lastName": "Pérez",
+        "email": "juan.perez@email.com"
+      },
+      "vaccines": [
+        {
+          "name": "COVID-19 Pfizer",
+          "doseNumber": 1,
+          "vaccinationDate": "2023-01-15",
+          "lotNumber": "PF123456",
+          "manufacturer": "Pfizer"
+        },
+        {
+          "name": "COVID-19 Pfizer",
+          "doseNumber": 2,
+          "vaccinationDate": "2023-02-15",
+          "lotNumber": "PF123457",
+          "manufacturer": "Pfizer"
+        },
+        {
+          "name": "Influenza",
+          "doseNumber": 1,
+          "vaccinationDate": "2023-06-01",
+          "lotNumber": "FLU2023",
+          "manufacturer": "Sanofi"
+        }
+      ]
+    }
+  }
+} 
