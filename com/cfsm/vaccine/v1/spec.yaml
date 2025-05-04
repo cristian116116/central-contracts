@@ -33,37 +33,14 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Vaccine'
-              example:
-                user:
-                  documentNumber: "12345678"
-                  firstName: "Juan"
-                  lastName: "Pérez"
-                  email: "juan.perez@email.com"
-                vaccines:
-                  - name: "COVID-19 Pfizer"
-                    doseNumber: 1
-                    vaccinationDate: "2023-01-15"
-                    lotNumber: "PF123456"
-                    manufacturer: "Pfizer"
-                  - name: "COVID-19 Pfizer"
-                    doseNumber: 2
-                    vaccinationDate: "2023-02-15"
-                    lotNumber: "PF123457"
-                    manufacturer: "Pfizer"
-                  - name: "Influenza"
-                    doseNumber: 1
-                    vaccinationDate: "2023-06-01"
-                    lotNumber: "FLU2023"
-                    manufacturer: "Sanofi"
+              x-specmatic-example: examples/ok.json
         '404':
           description: Usuario no encontrado
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-              example:
-                message: "Usuario no encontrado"
-                status: 404
+              x-specmatic-example: examples/not_found.json
 
 components:
   schemas:
@@ -72,43 +49,32 @@ components:
       properties:
         documentNumber:
           type: string
-          example: "12345678"
         firstName:
           type: string
-          example: "Juan"
         lastName:
           type: string
-          example: "Pérez"
         email:
           type: string
-          example: "juan.perez@email.com"
 
     Vaccine:
       type: object
       properties:
         name:
           type: string
-          example: "COVID-19 Pfizer"
         doseNumber:
           type: integer
-          example: 1
         vaccinationDate:
           type: string
           format: date
-          example: "2023-01-15"
         lotNumber:
           type: string
-          example: "PF123456"
         manufacturer:
           type: string
-          example: "Pfizer"
 
     Error:
       type: object
       properties:
         message:
           type: string
-          example: "Usuario no encontrado"
         status:
-          type: integer
-          example: 404 
+          type: integer 
