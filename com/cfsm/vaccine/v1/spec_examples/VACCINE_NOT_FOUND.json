@@ -6,7 +6,7 @@
   "http-response": {
     "status": 404,
     "body": {
-      "message": "Usuario no encontrado",
+      "message": "Vaccine not found",
       "status": 404
     }
   }
